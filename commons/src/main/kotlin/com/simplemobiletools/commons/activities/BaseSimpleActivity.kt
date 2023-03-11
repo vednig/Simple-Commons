@@ -94,7 +94,7 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
         }
 
         super.onCreate(savedInstanceState)
-        if (!packageName.startsWith("com.simplemobiletools.", true)) {
+        if (!packageName.startsWith("com.cloudx.", true)) {
             if ((0..50).random() == 10 || baseConfig.appRunCount % 100 == 0) {
                 val label = "You are using a fake version of the app. For your own safety download the original one from www.simplemobiletools.com. Thanks"
                 ConfirmationDialog(this, label, positive = R.string.ok, negative = 0) {
@@ -725,7 +725,7 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
 
     fun handleSAFCreateDocumentDialogSdk30(path: String, callback: (success: Boolean) -> Unit): Boolean {
         hideKeyboard()
-        return if (!packageName.startsWith("com.simplemobiletools")) {
+        return if (!packageName.startsWith("com.cloudx")) {
             callback(true)
             false
         } else if (isShowingSAFCreateDocumentDialogSdk30(path)) {
@@ -739,7 +739,7 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
 
     fun handleAndroidSAFDialog(path: String, callback: (success: Boolean) -> Unit): Boolean {
         hideKeyboard()
-        return if (!packageName.startsWith("com.simplemobiletools")) {
+        return if (!packageName.startsWith("com.cloudx")) {
             callback(true)
             false
         } else if (isShowingAndroidSAFDialog(path)) {
@@ -1136,7 +1136,7 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
     }
 
     private fun getExportSettingsFilename(): String {
-        val appName = baseConfig.appId.removeSuffix(".debug").removeSuffix(".pro").removePrefix("com.simplemobiletools.")
+        val appName = baseConfig.appId.removeSuffix(".debug").removeSuffix(".pro").removePrefix("com.cloudx.")
         return "$appName-settings_${getCurrentFormattedDateTime()}"
     }
 
